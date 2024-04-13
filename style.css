@@ -352,3 +352,48 @@ footer {
 .add-to-cart-btn:active {
     opacity: 0.7;
 }
+
+/*-----------------------------------------------------Video Game Page---------------------------------------------------------*/
+.VG_Window
+{
+	display: grid;
+	grid-template-columns: auto 200px;
+}
+
+.gameBar
+{
+	grid-column: 1
+}
+
+.filterBar
+{
+	border: 5px solid black;
+	grid-column: 2;
+	border-color: black;
+}
+
+.RowofItems
+{
+    display: flex;
+    gap: 20px;
+}
+
+.EachItem 
+{
+    text-align: center; /*Align the text to the center*/
+    background-color: white;
+    padding: 20px;
+    width: 12.5%;
+    border: 3px solid black;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+    margin-bottom: 15px;
+    height: 250px;
+}
+
+.itemPic
+{
+    width: 120;
+    height: 120;
+}
