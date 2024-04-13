@@ -125,53 +125,24 @@ nav {
     color: black;
 }
 
-.Firstcontent{
+.RowofContent{
     display: grid;
     grid-template-columns: auto auto auto auto;
     padding-top: 20px;
     padding-bottom: 30px;
-}
-
-.Firstcontent p{
+    height: 200px;
     border: 2px solid black;
-    text-align: center;
-    height: 7em;
+    margin-bottom: 10px;
 }
 
-.Secondcontent{
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    padding-top: 20px;
-    padding-bottom: 30px;
+.EachContent {
+    text-align: center; /*Align the text to the center*/
+    background-color: white;
+    padding: 20px;
+    max-width: 250px; 
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
-.Secondcontent p{
-    border: 2px solid black;
-    text-align: center;
-    height: 7em;
-}
-
-.Thirdcontent{
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.Thirdcontent p{
-    border: 2px solid black;
-    text-align: center;
-    height: 7em;
-}
-
-
-
-/*Content 1 Style Sheet*/
-
-
-
-
-
 
 
 
