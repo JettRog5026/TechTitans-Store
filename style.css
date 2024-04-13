@@ -13,15 +13,15 @@
 }
 
 /*Code for search bar*/
-.search-container {
+.search {
     position: relative;
-    width: 1500px;
+    width: 700px;
     margin: 20px;
     overflow: hidden; /* Hide the overflowing content */
 }
 
-.searchinput {
-    width: 2000;
+.searchInput {
+    width: calc(100% - 40px);
     padding: 10px;
     box-sizing: border-box;
     border-radius: 30px;
@@ -165,6 +165,17 @@ nav {
 }
 
 
+
+/*Content 1 Style Sheet*/
+
+
+
+
+
+
+
+
+
 /*Footer Style*/
 footer {
     background-color: rgba(4, 82, 156, 255);
@@ -173,26 +184,26 @@ footer {
     padding: 10px;
 }
 
-.footer-container {
+.footer {
     display: flex;
 } 
 
-.store-hours {
+.storeHours {
     margin-right: auto;
     max-width: 250px;
 }
 
-.address-phonenumber {
+.addressPhonenumber {
     flex: 1;
     text-align: center; /*Align the text to the center*/
 }
 
-.contact-us {
+.contactUs {
     margin-left: auto;
     max-width: 200px;
 }
 
-.social-media ul {
+.socialMedia ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -200,12 +211,12 @@ footer {
     text-align: center; /*Align the text to the center*/
 }
 
-.social-media li {
+.socialMedia li {
     display: inline-block;
     margin: 0 20px;
 }
 
-.social-media img {
+.socialMedia img {
     width: 40px;
     height: 38px;
     margin-top: 10px;
