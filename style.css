@@ -12,15 +12,17 @@
     padding: 20px;
 }
 
-/*Code for search bar*/
-.search {
+/*-----------------------------------------------------Style Code for search bar---------------------------------*/
+.search 
+{
     position: relative;
     width: 700px;
     margin: 20px;
     overflow: hidden; /* Hide the overflowing content */
 }
 
-.searchInput {
+.searchInput 
+{
     width: calc(100% - 40px);
     padding: 10px;
     box-sizing: border-box;
@@ -29,26 +31,31 @@
 
 /*Code for icons*/
 
-#mcneeselogotop {
+#mcneeselogotop 
+{
     width: 80px;
     height: 75px;
     margin-left: 20px;
     margin-right: 20px;
 }
 
-#signin {
+/*-----------------------------------------------------Style Code for sign in button---------------------------------*/
+#signin 
+{
     display: inline-block; /* Ensures the anchor behaves as a block-level element */
     margin-top: 0px;
     margin-left: 50px;
     margin-right: 50px;
 }
 
-.signinbutton {
+.signinbutton 
+{
     position: relative;
     overflow: hidden; /* Hide the overflowing content */
 }
 
-#signin button {
+#signin button 
+{
     background-color: white;
     text-align: left; /*Align the text to the left*/
     position: relative;
@@ -56,7 +63,8 @@
     width: 85px;
 }
 
-#signinImage {
+#signinImage 
+{
     position: absolute;
     right: 0;
     top: 50%;
@@ -64,26 +72,31 @@
     width: 15px;
     height: auto;
 }
-
-#cart {
+/*-----------------------------------------------------Style Code for Cart button---------------------------------*/
+#cart 
+{
     display: inline-block;
     margin-left: 50px;
 }
 
-.cartbutton {
+.cartbutton 
+{
     position: relative;
     overflow: hidden; /* Hide the overflowing content */
 }
 
-#cart button {
+#cart button 
+{
     background-color: white;
     text-align: left; /*Align the text to the left*/
+	
     position: relative;
     font-size: 17px;
     width: 70px;
 }
 
-#cartImage {
+#cartImage 
+{
     position: absolute;
     right: 0;
     top: 50%;
@@ -92,13 +105,15 @@
     height: auto;
 }
 
-/*Code for nav bar style*/
-nav {
+/*-----------------------------------------------------Style Code for nav bar---------------------------------*/
+nav 
+{
     background-color: dodgerblue;
     overflow: hidden;
 }
 
-.navbar {
+.navbar 
+{
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -106,12 +121,14 @@ nav {
     text-align: center; /*Align the text to the center*/
 }
 
-.navbar li {
+.navbar li 
+{
     display: inline-block;
     margin: 0 20px;
 }
 
-.navbar li a {
+.navbar li a 
+{
     font-size: 18px;
     display: block;
     color: lawngreen;
@@ -120,34 +137,13 @@ nav {
     text-decoration: none;
 }
 
-.navbar li a:hover {
+.navbar li a:hover 
+{
     background-color: #ddd;
     color: black;
 }
 
-.RowofContent{
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    padding-top: 20px;
-    padding-bottom: 30px;
-    height: 200px;
-    border: 2px solid black;
-    margin-bottom: 10px;
-}
-
-.EachContent {
-    text-align: center; /*Align the text to the center*/
-    background-color: white;
-    padding: 20px;
-    max-width: 250px; 
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-
-
-
-/*Footer Style*/
+/*-----------------------------------------------------Style Code for Footer----------------------------------------------------*/
 footer {
     background-color: rgba(4, 82, 156, 255);
     color: white;
@@ -155,26 +151,31 @@ footer {
     padding: 10px;
 }
 
-.footer {
+.footer 
+{
     display: flex;
 } 
 
-.storeHours {
+.storeHours 
+{
     margin-right: auto;
     max-width: 250px;
 }
 
-.addressPhonenumber {
+.addressPhonenumber 
+{
     flex: 1;
     text-align: center; /*Align the text to the center*/
 }
 
-.contactUs {
+.contactUs 
+{
     margin-left: auto;
     max-width: 200px;
 }
 
-.socialMedia ul {
+.socialMedia ul 
+{
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -182,13 +183,102 @@ footer {
     text-align: center; /*Align the text to the center*/
 }
 
-.socialMedia li {
+.socialMedia li 
+{
     display: inline-block;
     margin: 0 20px;
 }
 
-.socialMedia img {
+.socialMedia img 
+{
     width: 40px;
     height: 38px;
     margin-top: 10px;
 }
+
+/*-----------------------------------------------------Style Code for Home Page Body----------------------------------------------------*/
+/*Home Page - Hottest Deals - Style Sheet*/
+.HP_Deals_Content
+{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.HP_Deals_Content p
+{
+    border: 2px solid black;
+    text-align: center;
+    height: 7em;
+}
+
+/*Home Page - Comic Books - Style Sheet*/
+.HP_Books_Content
+{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.HP_Books_Content p
+{
+    border: 2px solid black;
+    text-align: center;
+    height: 7em;
+}
+
+/*Home Page - Video Games - Style Sheet*/
+.HP_Games_Content
+{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.HP_Games_Content p
+{
+    border: 2px solid black;
+    text-align: center;
+    height: 7em;
+}
+
+/*-----------------------------------------------------Hottest Deals Page-------------------------------------------------------*/
+
+.HD_ComicBooks_Content
+{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.HD_ComicBooks_Content p
+{
+    border: 2px solid black;
+    text-align: center;
+    height: 7em;
+}
+
+.HD_VideoGames_Content
+{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.HD_VideoGames_Content p
+{
+    border: 2px solid black;
+    text-align: center;
+    height: 7em;
+}
+
+/*-----------------------------------------------------Comic Books Page---------------------------------------------------------*/
+
+
+
+/*-----------------------------------------------------Video Games Page---------------------------------------------------------*/

@@ -6,47 +6,68 @@
 
 
 //Function to display only home page
-function homePage(){
+function homePageNav()
+{
     document.getElementById('HomePage').style.display='block';//Selects Home Page
-    document.getElementById('Content1').style.display='none';
-    document.getElementById('Content2').style.display='none';
-    document.getElementById('Content3').style.display='none';
+    document.getElementById('Hottest Deals').style.display='none';
+    document.getElementById('Comic Books').style.display='none';
+    document.getElementById('Games').style.display='none';
+	document.getElementById('Contact Us').style.display='none';
     document.getElementById('About Us').style.display='none';
 }
 
 //Function to display only Content1 page
-function content1(){
+function dealsNav()
+{
     document.getElementById('HomePage').style.display='none';
-    document.getElementById('Content1').style.display='block';//Selects Content 1 Page
-    document.getElementById('Content2').style.display='none';
-    document.getElementById('Content3').style.display='none';
+    document.getElementById('Hottest Deals').style.display='block';//Selects Hottest Deals Page
+    document.getElementById('Comic Books').style.display='none';
+    document.getElementById('Games').style.display='none';
+	document.getElementById('Contact Us').style.display='none';
     document.getElementById('About Us').style.display='none';
 }
 
 //Function to display only Content2 page
-function content2(){
+function booksNav()
+{
     document.getElementById('HomePage').style.display='none';
-    document.getElementById('Content1').style.display='none';
-    document.getElementById('Content2').style.display='block';//Selects Content 2 Page
-    document.getElementById('Content3').style.display='none';
+    document.getElementById('Hottest Deals').style.display='none';
+    document.getElementById('Comic Books').style.display='block';//Selects Comic Books Page
+    document.getElementById('Games').style.display='none';
+	document.getElementById('Contact Us').style.display='none';
     document.getElementById('About Us').style.display='none';
 }
 
 //Function to display only Content3 page
-function content3(){
+function gamesNav()
+{
     document.getElementById('HomePage').style.display='none';
-    document.getElementById('Content1').style.display='none';
-    document.getElementById('Content2').style.display='none';
-    document.getElementById('Content3').style.display='block';//Selects Content 3 Page
+    document.getElementById('Hottest Deals').style.display='none';
+    document.getElementById('Comic Books').style.display='none';
+    document.getElementById('Games').style.display='block';//Selects Games Page
+	document.getElementById('Contact Us').style.display='none';
+    document.getElementById('About Us').style.display='none';
+}
+
+//Function to display only Contact Us page
+function contactUs()
+{
+	document.getElementById('HomePage').style.display='none';
+    document.getElementById('Hottest Deals').style.display='none';
+    document.getElementById('Comic Books').style.display='none';
+    document.getElementById('Games').style.display='none';
+	document.getElementById('Contact Us').style.display='block';//Selects Contact Us Page
     document.getElementById('About Us').style.display='none';
 }
 
 //Function to display only About Us page
-function aboutUs(){
+function aboutUs()
+{
     document.getElementById('HomePage').style.display='none';
-    document.getElementById('Content1').style.display='none';
-    document.getElementById('Content2').style.display='none';
-    document.getElementById('Content3').style.display='none';
+    document.getElementById('Hottest Deals').style.display='none';
+    document.getElementById('Comic Books').style.display='none';
+    document.getElementById('Games').style.display='none';
+	document.getElementById('Contact Us').style.display='none';
     document.getElementById('About Us').style.display='block';//Selects About Us Page
 }
 
