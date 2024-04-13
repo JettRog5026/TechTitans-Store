@@ -95,6 +95,12 @@
     width: 70px;
 }
 
+#cart button:active .cartView{
+    left:calc(100% - 500px);
+
+}
+
+
 #cartImage 
 {
     position: absolute;
@@ -196,7 +202,7 @@ footer {
     margin-top: 10px;
 }
 
-/*-----------------------------------------------------Store Pages---------------------------------------------------------*/
+/*-----------------------------------------------------Store Page---------------------------------------------------------*/
 .RowofItems{
     display: flex;
     gap: 20px;
@@ -206,7 +212,7 @@ footer {
     text-align: center; /*Align the text to the center*/
     background-color: white;
     padding: 20px;
-    width: 250px;
+    width: 12.5%;
     border: 3px solid black;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -220,4 +226,74 @@ footer {
     height: 120;
 }
 
-/*-----------------------------------------------------Video Games Page---------------------------------------------------------*/
+
+/*-----------------------------------------------------Cart---------------------------------------------------------*/
+.cartList{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+    margin-top: 50px;
+}
+
+.cartView{
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 500px;
+    background-color:darkolivegreen;
+    height: 100vh;
+    transition: 0.5s;
+}
+
+.cartView h1{
+    color: gold;
+    font-weight: 100;
+    margin: 0;
+    padding: 0 20px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.cartView .checkout{
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.cartView .checkout div{
+    background-color: gold;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cartView .checkout div:nth-child(2){
+    background-color: saddlebrown;
+    color: #ffffff;
+}
+
+.active .cartCard{
+    left:calc(100% - 500px);
+}
+
+.cartView  li{
+    display: grid;
+    grid-template-columns: 100px repeat(3, 1fr);
+    color: #ffffff;
+    row-gap: 10px;
+    margin-bottom: 20px;
+}
+
+.cartView  li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
