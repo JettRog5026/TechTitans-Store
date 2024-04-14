@@ -114,7 +114,7 @@
 /*-----------------------------------------------------Style Code for nav bar---------------------------------*/
 nav 
 {
-    background-color: dodgerblue;
+    background-color: rgb(30, 109, 255);
     overflow: hidden;
 }
 
@@ -137,7 +137,7 @@ nav
 {
     font-size: 18px;
     display: block;
-    color: lawngreen;
+    color: rgb(252, 252, 0);
     text-align: center; /*Align the text to the center*/
     padding: 14px 16px;
     text-decoration: none;
