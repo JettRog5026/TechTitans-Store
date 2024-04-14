@@ -82,7 +82,7 @@
 		</div>
 
 		<!-- Popup Message -->
-		<div id="popup" class="popup">
+		<div id="popup" class="popup" sytle="display: none;">
 		  <p>Thank you for contacting us! A member of our team will be with you shortly.</p>
 		  <button id="closePopup" onclick="closePopup()">Close</button>
 		</div>
@@ -90,7 +90,7 @@
 		<!-- Script for Popup Message -->
 		<script>
 		  // Function to display popup message
-		  function displayPopup() 
+		  function showPopup() 
 		  {
 			document.getElementById("popup").style.display = "block";
 		  }
@@ -106,10 +106,16 @@
 		  {
 			event.preventDefault();
 			// Display popup message after form submission
-			displayPopup();
+			showPopup();
 			// Clear form fields after form submission
 			document.getElementById("contactForm").reset();
 		  });
+
+          // Hide popup message on page load
+            window.onload = function()
+            {
+                document.getElementById("popup").style.display = "none";
+            }
 		</script>
  
 		 <!--Footer Code-->
