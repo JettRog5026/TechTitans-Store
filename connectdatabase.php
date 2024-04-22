@@ -2,8 +2,8 @@
 /*
     PHP file that connects to the MySQL database
     and selects Book and Office Supply information
-    Author: Ethan Campbell
-    Created On: 2/28/2024
+    Author: Jett Rogers
+    Created On: 4/19/2024
 */
     $db_server = "localhost"; // server name
     $db_username = "root"; //username
