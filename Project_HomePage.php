@@ -59,8 +59,8 @@
                 <li><a href="Project_HomePage.html"  target ='_self'>Home</a></li> 				<!--When clicked, shows the Home page-->
                 <li><a href="Project_ComicBooksPage.html"  target ='_self'>Comic Books</a></li> 		<!--When clicked, shows the Comic Boks page-->
                 <li><a href="Project_VideoGamesPage.html"  target ='_self'>Video Games</a></li> 		<!--When clicked, shows the Games page-->
-				<li><a href="Project_ContactUsPage.html"  target ='_self'>Contact Us</a></li> 			<!--When clicked, shows the Contact Us page-->
-                <li><a href="Project_AboutUsPage.html"  target ='_self'>About Us</a></li> 				<!--When clicked, shows the About Us page-->
+		<li><a href="Project_ContactUsPage.html"  target ='_self'>Contact Us</a></li> 			<!--When clicked, shows the Contact Us page-->
+                <li><a href="Project_AboutUsPage.html"  target ='_self'>About Us</a></li> 		        <!--When clicked, shows the About Us page-->
             </ul>
         </nav>
 
