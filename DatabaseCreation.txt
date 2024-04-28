@@ -15,7 +15,10 @@ CREATE TABLE videogames
 	genre VARCHAR(255) NOT NULL,
 	price DECIMAL(10,2) NOT NULL,
 	picturepath VARCHAR(255),
-	description TEXT
+	description TEXT,
+	userAdd BOOLEAN DEFAULT FALSE,
+	lister INT,
+	FOREIGN KEY (lister) REFERENCES users(userID)
 );
 
 CREATE TABLE comicbooks
@@ -27,6 +30,9 @@ CREATE TABLE comicbooks
 	price DECIMAL(10,2) NOT NULL,
 	picturepath VARCHAR(255),
 	description TEXT
+	userAdd BOOLEAN DEFAULT FALSE,
+	lister INT,
+	FOREIGN KEY (lister) REFERENCES users(userID)
 );
 
 CREATE TABLE reviews
