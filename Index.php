@@ -26,44 +26,7 @@
 
     <body>
 
-        <div class="header">
-            <img src="Images/McNeeseLogo.png" alt="McNeese" id="mcneeselogotop"> <!--Mcneese logo-->
-
-            <!--Search bar-->
-            <div class="search">
-                <input type="text" class="searchInput" placeholder="Enter Product Name or Brand">
-            </div>
-
-            <!--Sign in button-->
-            <a href="" id="signin">
-                <div class="signinbutton">
-                    <button>Sign In
-                        <img id="signinImage" src="Images/SignIn.png" alt="Sign In">
-                    </button>
-                </div>
-            </a>
-
-            <!--Cart button-->
-            <a href="" id="cart">
-                <div class="cartbutton">
-                    <button>Cart
-                        <img id="cartImage" src="Images/ShoppingCart.png" alt="Shopping Cart">
-                    </button>
-                </div>
-            </a>
-        </div>
-
-        <!--Navigation bar-->
-        <nav>
-            <ul class="navbar">
-                <li><a href="Project_HomePage.html"  target ='_self'>Home</a></li> 				<!--When clicked, shows the Home page-->
-                <li><a href="Project_ComicBooksPage.html"  target ='_self'>Comic Books</a></li> 		<!--When clicked, shows the Comic Boks page-->
-                <li><a href="Project_VideoGamesPage.html"  target ='_self'>Video Games</a></li> 		<!--When clicked, shows the Games page-->
-		<li><a href="Project_ContactUsPage.html"  target ='_self'>Contact Us</a></li> 			<!--When clicked, shows the Contact Us page-->
-                <li><a href="Project_AboutUsPage.html"  target ='_self'>About Us</a></li> 		        <!--When clicked, shows the About Us page-->
-            </ul>
-        </nav>
-
+        <?php include("Header.php") ?>
         <!--Home Page Content-->
         <div id="HomePage">
 		
