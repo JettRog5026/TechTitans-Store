@@ -41,19 +41,13 @@
             if ($result->num_rows > 0) {
                 $lasGenre = null;
                 while ($row = $result->fetch_assoc()) {
-                    if($row['genre'] != $lasGenre) {
-                        if($lasGenre == null)
-                        {
-                            echo '</div>';
-                        }
-                        echo '<h1>'. $row['genre'] . '</h1>';
-                        echo '<div class="'. $row['genre']. 'container">';
-                        $lasGenre = $row['genre'];
-                    }
                     echo '<div class="book">';
-                    echo '<h2>' . $row['name'] . '</h2>';
-                    echo '<p>Author: ' . $row['author'] . '</p>';
+                    echo '<h1>' . $row['name'] . '</h1>';
+                    echo '<i>' . $row['author'] . '</i>';
+                    echo '<p>'. $row['genre'] . '</p>';
+                    echo '<hr>';
                     echo '<img src="' . $row['picturepath'] . '" alt="Book Cover">';
+                    echo '<hr>';
                     echo '<p>$' . $row['price'] . '</p>';
                     echo '<p class="description">' . $row['description'] . '</p>';
                     echo '<button class="add-to-cart-btn">Add to Cart</button>';

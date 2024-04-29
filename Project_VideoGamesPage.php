@@ -42,7 +42,7 @@
 		<?php
             include("connectdatabase.php");
             $videogames = array();
-            $sql_videogames = "SELECT name,developer,genre,price,picturepath FROM videogames WHERE userAdd = FALSE ORDER BY genre";
+            $sql_videogames = "SELECT name,developer,genre,price,picturepath, description FROM videogames WHERE userAdd = FALSE ORDER BY genre";
             $result_videogames = mysqli_query($conn, $sql_videogames);
             if (mysqli_num_rows($result_videogames) > 0) 
             {
@@ -65,6 +65,7 @@
                         echo '<img src="'.$row["picturepath"].'" alt="'.$row["name"].'">';
                         echo '<p>Price: $'.$row["price"].'</p>';
                         echo '<button class="add-to-cart-btn">Add to Cart</button>';
+                        echo '<p class="description">' . $row['description'] . '</p>';
                     echo '</div>';
 
                     if (!in_array($row["genre"], $displayedGenres) && $row != end($videogames)) 
