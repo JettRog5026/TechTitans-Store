@@ -16,7 +16,7 @@
     </a>
 
     <!--Cart button-->
-    <a href="" id="cart">
+    <a href="cart.php" id="cart">
         <div class="cartbutton">
             <button>Cart
                 <img id="cartImage" src="Images/ShoppingCart.png" alt="Shopping Cart">
