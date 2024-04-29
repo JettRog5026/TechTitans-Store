@@ -1,3 +1,8 @@
+<!--
+    TechTitans Store Video Games Page
+    Date last modified: 4/28/2024
+    Who last modified: Morgan Leger
+-->
 <?php
 	include("connectdatabase.php")
 ?>
@@ -19,77 +24,61 @@
 		
 		<!--Link to external stylesheet -->
 		<link href = "style.css" type = "text/css" rel = "stylesheet">
+		<style>
+			#listingForm 
+			{
+				display: none;
+			}
+
+            .Hotcontainer h2{
+                display:block;
+                width:100%
+            }
+		</style>
     </header>
 
      <body>
-        <?php include("Header.php") ?>
-
-		<form id = "listingForm" action = "Listing.php" method="post">
-				<div>
-					<label for="name">Game Name</label>
-					<input type="text" id="name" name ="name">
-				</div>
-				<div>
-					<label for="developer">Developer</label>
-					<input type="text" id="developer" name ="developer">
-				</div>
-				<div>
-					<label for="genre">Genre</label>
-					<input type="text" id="genre" name ="genre">
-				</div>
-				<div>
-					<label for="genre">Description</label>
-					<input type="text" id="description" name ="description">
-				</div>
-				<div>
-					<label for="price">Price</label>
-					<input type="text" id="price" name ="price">
-				</div>
-				<button onclick="<?php insertListing() ?>">Submit</button>
-			</form>
+		<?php include("Header.php") ?>
 		<?php
-			function insertListing()
-			{
-				global $conn;
-				if ($_SERVER["REQUEST_METHOD"] == "POST") {
-				if (isset($_POST['name'], $_POST['developer'], $_POST['genre'], $_POST['price'])) {
-					$genre = $_POST['genre'];
-					$name = $_POST['name'];
-					$price = $_POST['price'];
-					$developer = $_POST['developer'];
-					$description = isset($_POST['description']) ? $_POST['description'] : '';
-					$lister = isset($_SESSION['id']) ? $_SESSION['id'] : '';
-					$sqlStatement = 'INSERT INTO videogames (name, developer, genre, price, description, userAdd, lister) VALUES (?, ?, ?, ?, ?, ?, ?)';
-					$stmt = mysqli_prepare($conn, $sqlStatement);
-					$userAddValue = 1;
+            include("connectdatabase.php");
+            $videogames = array();
+            $sql_videogames = "SELECT name,developer,genre,price,picturepath FROM videogames WHERE userAdd = FALSE ORDER BY genre";
+            $result_videogames = mysqli_query($conn, $sql_videogames);
+            if (mysqli_num_rows($result_videogames) > 0) 
+            {
+                //Keep track of displayed genres
+                $displayedGenres = array();
+                while ($row = mysqli_fetch_assoc($result_videogames))
+                {
+                    //Check if the genre has already been displayed
+                    if (!in_array($row["genre"], $displayedGenres)) 
+                    {
+                        echo '<div class="Hotcontainer">';
+                        echo '<h2>'.$row["genre"].'</h2>';
+                        $displayedGenres[] = $row["genre"];
+                        
+                    }
+                    //Display game details
+                    echo '<div class="book">';
+                        echo '<h2>'.$row["name"].'</h2>';
+                        echo '<h4>'.$row["developer"].'</h4>';
+                        echo '<img src="'.$row["picturepath"].'" alt="'.$row["name"].'">';
+                        echo '<p>Price: $'.$row["price"].'</p>';
+                        echo '<button class="add-to-cart-btn">Add to Cart</button>';
+                    echo '</div>';
 
-					mysqli_stmt_bind_param($stmt, 'sssssii', $name, $developer, $genre, $price, $description, $userAddValue, $lister);
-					$result = mysqli_stmt_execute($stmt);
-
-					if ($result) 
-					{
-						// Redirect if insertion is successful
-						header("Location: Listing.php");
-						exit();
-					} 
-					else 
-					{
-						// Display error message if insertion fails
-						echo '<script>alert("Missing/Incorrect Input")</script>';
-						header("refresh:1");
-					}
-				} 
-				else 
-				{
-					// Handle case when required fields are not set
-					echo '<script>alert("Missing required fields")</script>';
-					header("refresh:1");
-				}
-			}
-			}
-			?>
-			<!--Broad View of Video Game Window-->
+                    if (!in_array($row["genre"], $displayedGenres) && $row != end($videogames)) 
+                    {
+                        echo '</div>';
+                    }
+                }
+            } 
+            else 
+            {
+                echo "<h1>NO USER INPUTS</h1>";
+            }
+        ?>
 		<?php include("Footer.php") ?>
-    </body>
+	</body>
 	<script src="store.js" defer></script>
 </html>
