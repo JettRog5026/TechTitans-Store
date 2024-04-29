@@ -309,7 +309,7 @@ footer {
 }
 
 /*-----------------------------------------------------Comics Page---------------------------------------------------------*/
-#bookContainer {
+#RomanceContainer, #HorrorContainer, #SuperheroContainer, #MangaContainer{
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;

@@ -116,89 +116,39 @@
                 </div>
             </div>
 
-            <h2 >Comic Books</h2>
-            <div class="RowofItems">
-                <div class="EachItem">
-
-                    <img src="Images/ComicBooks/SunisStar.jpg" alt="GameName" class="itemPic">
-
-                    <p><b>The Sun Is Also a Star</b><br>
-                        <i>Nicola Yoon</i><br>
-                        <b>Price: $59.99</b>
-                    </p>
-                </div>
-                
-
-                <div class="EachItem">
-
-                    <img src="Images/ComicBooks/HeartStop.jpg" alt="GameName" class="itemPic">
-
-                    <p><b>Heartstopper</b><br>
-                        <i>Alice Oseman</i><br>
-                        <b>Price: $59.99</b>
-                    </p>
-                </div>
-
-                <div class="EachItem">
+            <a href="Project_ComicBooksPage.php"><h2>Comic Books</h2></a>
+            <div id="bookContainer">
+                <?php
+                    include("connectdatabase.php");
                     
-                    <img src="Images/ComicBooks/Lock.jpg" alt="GameName" class="itemPic">
-
-                    <p><b>Locke & Key</b><br>
-                        <i>Joe Hill</i><br>
-                        <b>Price: $59.99</b>
-                    </p>
-                </div>
-
-                <div class="EachItem">
-
-                    <img src="Images/ComicBooks/HarrowCounty.jpg" alt="GameName" class="itemPic">
-
-                    <p><b>Harrow County</b><br>
-                        <i>Cullen Bunn</i><br>
-                        <b>Price: $59.99</b>
-                    </p>
-                </div>
-
-                <div class="EachItem">
+                    // SQL query to retrieve books data
+                    $sql = "SELECT name, author, genre, price, picturepath, description FROM comicbooks LIMIT 4";
+                    $result = mysqli_query($conn, $sql);
                     
-                    <img src="Images/ComicBooks/MyHeroA.png" alt="GameName" class="itemPic">
+                    // Close database connection
+                    $conn->close();
 
-                    <p><b>My Hero Academia</b><br>
-                        <i>Kohei Horikoshi</i><br>
-                        <b>Price: $59.99</b>
-                    </p>
-                </div>
-
-                <div class="EachItem">
-                    
-                    <img src="Images/ComicBooks/AttackOnTitan.jpg" alt="GameName" class="itemPic">
-
-                    <p><b>Attack on Titan</b><br>
-                        <i>Hajime Isayama</i><br>
-                        <b>Price: $59.99</b>
-                    </p>
-                </div>
-
-                <div class="EachItem">
-                    
-                    <img src="Images/ComicBooks/BatmanHush.jpg" alt="GameName" class="itemPic">
-
-                    <p><b>Batman: Hush</b><br>
-                        <i>Jeph Loeb</i><br>
-                        <b>Price: $59.99</b>
-                    </p>
-                </div>
-
-                <div class="EachItem">
-                    
-                    <img src="Images/ComicBooks/SupermanRed.jpg" alt="GameName" class="itemPic">
-
-                    <p><b>Superman: Red Son</b><br>
-                        <i>Mark Millar</i><br>
-                        <b>Price: $59.99</b>
-                    </p>
-                </div>
-            </div>
+                    // Output books as HTML
+                    if ($result->num_rows > 0) {
+                        $lasGenre = null;
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<div class="book">';
+                            echo '<h1>' . $row['name'] . '</h1>';
+                            echo '<i>' . $row['author'] . '</i>';
+                            echo '<p>'. $row['genre'] . '</p>';
+                            echo '<hr>';
+                            echo '<img src="' . $row['picturepath'] . '" alt="Book Cover">';
+                            echo '<hr>';
+                            echo '<p>$' . $row['price'] . '</p>';
+                            echo '<p class="description">' . $row['description'] . '</p>';
+                            echo '<button class="add-to-cart-btn">Add to Cart</button>';
+                            echo '</div>';
+                        }
+                    } else {
+                        echo '<p>No books found.</p>';
+                    }
+                ?>
+            </div>	
 
             <h2>Video Games</h2>
                 <?php
