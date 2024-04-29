@@ -9,28 +9,46 @@
 
     if(isset($_POST['submit']))
     {
-        $email = $_POST['email'];
+        $username = $_POST['username'];
         $password = $_POST['password'];
-        $sqlStatement = 'SELECT Username, Password FROM Customer WHERE Username=? AND Password=?';
+
+        $sqlStatement = 'SELECT userID, Username, Password FROM users WHERE Username=?';
         $stmt = mysqli_prepare($conn, $sqlStatement);
-        mysqli_stmt_bind_param($stmt, "ss", $email, $password);
+        mysqli_stmt_bind_param($stmt, "s", $username);
         mysqli_stmt_execute($stmt);
+
         $results = mysqli_stmt_get_result($stmt);
+
+        $row = mysqli_fetch_assoc($results);
+        $hashed_password = $row["Password"];
+        $id = $row["userID"];
 
         //If username and password are correct
         if(mysqli_num_rows($results) > 0)
         {
-            session_start();
-            $_SESSION['loggedin'] = true;
-            header("Location: https:localhost/McNeese_Bookstore/#");
+            if (password_verify($password, $hashed_password)) 
+            { 
+                session_start();
+                $_SESSION['loggedin'] = true;
+                $_SESSION['id'] = $id;
+
+                echo'<script>alert("Welcome Back")</script>';
+                echo '<script>window.location.href = "Index.php";</script>';
+                exit;
+            }
+            else
+            {
+                echo'<script>alert("Incorrect Password")</script>';
+                echo '<script>window.location.href = "signin.html";</script>';
+                exit;
+            }
         }
 
-        //If username and password are incorrect
-        else{
-            echo'<script>alert("Incorrect Email or Password")</script>';
-            header("refresh:1");
-            
-
+        //If username is incorrect
+        else
+        {
+            echo'<script>alert("Incorrect Username")</script>';
+            echo '<script>window.location.href = "signin.html";</script>';
         }
     }
 ?>
