@@ -30,7 +30,7 @@
 				display: none;
 			}
 
-            .Hotcontainer h2{
+            .gameContainer h2{
                 display:block;
                 width:100%
             }
@@ -53,8 +53,8 @@
                     //Check if the genre has already been displayed
                     if (!in_array($row["genre"], $displayedGenres)) 
                     {
-                        echo '<div class="Hotcontainer">';
-                        echo '<h2>'.$row["genre"].'</h2>';
+                        echo '<h2>' . $row["genre"] . '</h2>';
+                        echo '<div id="gameContainer">';
                         $displayedGenres[] = $row["genre"];
                         
                     }
