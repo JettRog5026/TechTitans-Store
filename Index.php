@@ -22,6 +22,18 @@
 		
 		<!--Link to external stylesheet -->
 		<link href = "style.css" type = "text/css" rel = "stylesheet">
+        <style>
+			#listingForm 
+			{
+				display: none;
+			}
+
+            .Hotcontainer h2
+            {
+                display:block;
+                width:100%
+            }
+		</style>
     </header>
 
     <body>
@@ -189,82 +201,34 @@
             </div>
 
             <h2>Video Games</h2>
-            <div class="RowofItems">
-                <div class="EachItem">
-                    
-                   <p>Madden NFL 22<br>
-								EA Sports
-							</p>
-							<img src="Images/Madden NFL 22.jpg" alt="Madden NFL 22" class="itemPic">
-							<h4>Price: $69.99</h4>
-                </div>
-                
-
-                <div class="EachItem">
-                    
-
-                    <p>World of Warcraft<br>
-								Blizzard Entertainment
-							</p>
-							<img src="Images/World of Warcraft.jpg" alt="World of Warcraft" class="itemPic">
-							<h4>Price: $69.99</h4>
-                </div>
-
-                <div class="EachItem">
-                    
-                    <p>Call of Duty: Warzone<br>
-								Infinity Ward / Raven Software
-							</p>
-							<img src="Images/CallofDutyWarzone.jpg" alt="Call of Duty: Warzone" class="itemPic">
-							<h4>Price: $69.99</h4>
-                </div>
-
-                <div class="EachItem">
-                    
-                    <p>Hades<br>
-								Supergiant Games
-							</p>
-							<img src="Images/Hades.jpg" alt="Hades" class="itemPic">
-							<h4>Price: $69.99</h4>
-                </div>
-
-                <div class="EachItem">
-                    
-                    <p>FIFA 22<br>
-								EA Sports
-							</p>
-							<img src="Images/FIFA 22.jpg" alt="FIFA 22" class="itemPic">
-							<h4>Price: $69.99</h4>
-                </div>
-
-                <div class="EachItem">
-                    
-                    <p>Stardew Valley<br>
-								ConcernedApe (Eric Barone)
-							</p>
-							<img src="Images/Stardew Valley.jpg" alt="Stardew Valley" class="itemPic">
-							<h4>Price: $69.99</h4>
-                </div>
-
-                <div class="EachItem">
-                    
-                    <p>Hades<br>
-								Supergiant Games
-							</p>
-							<img src="Images/Hades.jpg" alt="Hades" class="itemPic">
-							<h4>Price: $69.99</h4>
-                </div>
-
-                <div class="EachItem">
-                    
-                    <p>Counter-Strike: Global Offensive<br>
-								Valve Corporation / Hidden Path Entertainment
-							</p>
-							<img src="Images/Counter-StrikeGlobalOffensive.jpg" alt="Counter-Strike: Global Offensive" class="itemPic">
-							<h4>Price: $69.99</h4>
-                </div>
-
-            </div>
+                <?php
+                    include("connectdatabase.php");
+                    $videogames = array();
+                   $sql_videogames = "SELECT * FROM videogames WHERE userAdd = FALSE AND price < 30 ORDER BY price ASC";
+                    $result_videogames = mysqli_query($conn, $sql_videogames);
+                    if (mysqli_num_rows($result_videogames) > 0) 
+                    {
+                        //Keep track of displayed genres
+                        $displayedGenres = array();
+                        echo '<div class="Hotcontainer">';
+                        while ($row = mysqli_fetch_assoc($result_videogames))
+                        {
+                            //Check if the genre has already been displayed
+                            //Display game details
+                            echo '<div class="book">';
+                                echo '<h2>'.$row["name"].'</h2>';
+                                echo '<h4>'.$row["developer"].'</h4>';
+                                echo '<img src="'.$row["picturepath"].'" alt="'.$row["name"].'">';
+                                echo '<p>Price: $'.$row["price"].'</p>';
+                                echo '<button class="add-to-cart-btn">Add to Cart</button>';
+                            echo '</div>';
+                        }
+                    } 
+                    else 
+                    {
+                        echo "<h1>NO USER INPUTS</h1>";
+                    }
+                ?>
         </div>
 
         
