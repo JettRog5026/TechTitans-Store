@@ -7,7 +7,7 @@
     </div>
 
     <!--Sign in button-->
-    <a href="" id="signin">
+    <a href="signin.html" id="signin">
         <div class="signinbutton">
             <button>Sign In
                 <img id="signinImage" src="Images/SignIn.png" alt="Sign In">
