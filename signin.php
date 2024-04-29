@@ -5,6 +5,7 @@
 -->
 
 <?php 
+    include("footer.php")
     include("connectdatabase.php");
 
     if(isset($_POST['submit']))
@@ -51,4 +52,5 @@
             echo '<script>window.location.href = "signin.html";</script>';
         }
     }
+    include("footer.php");
 ?>

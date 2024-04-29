@@ -10,6 +10,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Bookstore Cart</title>
+        <link rel="stylesheet" href="style.css"> <!--Link to CSS file-->
         <link rel="stylesheet" href="checkout.css"> <!--Link to CSS file-->
 
         <style>
@@ -30,22 +31,10 @@
             }
         </style>
     </head>
-    <body> 
-    
-    <?php
-        /*include("connectdatabase.php");
-        $query ="SELECT * FROM cart WHERE CustomerId=?";
-        $query->bind_param("i", $customerId);
-
-        if ($result=mysqli_query($conn, $query))
-        {
-            // Return the number of rows in result set
-            $rowcount=mysqli_num_rows($result);
-        }*/
-    ?>
+    <body>
 
     <?php
-        include("header.html");
+        include("Header.php");
     ?>
     <div class="checkout">
         <h2>Checkout Form</h2>
@@ -128,6 +117,6 @@
         
     </body>
     <?php
-        include("footer.html");
+        include("Footer.php");
     ?>
 </html>

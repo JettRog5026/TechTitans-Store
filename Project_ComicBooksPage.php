@@ -26,45 +26,177 @@
     <body>
 
     <?php include("Header.php") ?>
-    <?php
-        include("connectdatabase.php");
+    <h1>Romance</h1>
+    <div id="RomanceContainer">
+        <?php
+            include("connectdatabase.php");
+            
+            // SQL query to retrieve books data
+            $sql = "SELECT name, author, genre, price, picturepath, description FROM comicbooks WHERE genre = 'Romance'";
+            $result = mysqli_query($conn, $sql);
+            
+            // Close database connection
+            $conn->close();
 
-        $sql = "SELECT DISTINCT genre FROM comicbooks";
-        $genres = mysqli_query($conn, $sql);
-
-        if ($genres->num_rows > 0) {
-            while($genre = $genres->fetch_assoc()) {
-                $curGenre = $genre['genre'];
-                echo '<h1>' . $curGenre . '</h1>';
-                echo '<div id="' . $curGenre . 'Container">';
-                
-                $sql = "SELECT name, author, genre, price, picturepath, description FROM comicbooks WHERE genre = '" . $curGenre . "'";
-                $result = mysqli_query($conn, $sql);
-
-                if ($result->num_rows > 0) {
-                    $lasGenre = null;
-                    while ($row = $result->fetch_assoc()) {
-                        echo '<div class="book">';
-                        echo '<h1>' . $row['name'] . '</h1>';
-                        echo '<i>' . $row['author'] . '</i>';
-                        echo '<p>'. $row['genre'] . '</p>';
-                        echo '<hr>';
-                        echo '<img src="' . $row['picturepath'] . '" alt="Book Cover">';
-                        echo '<hr>';
-                        echo '<p>$' . $row['price'] . '</p>';
-                        echo '<p class="description">' . $row['description'] . '</p>';
-                        echo '<button class="add-to-cart-btn">Add to Cart</button>';
-                        echo '</div>';
-                    }
-                } else {
-                    echo '<p>No books found.</p>';
+            // Output books as HTML
+            if ($result->num_rows > 0) {
+                $lasGenre = null;
+                while ($row = $result->fetch_assoc()) {
+                    ?>
+                    <div class="book">
+                        <h1><?php echo htmlspecialchars($row['name'])?> </h1>
+                        <i> <?php echo htmlspecialchars($row['author'])?> </i>
+                        <p> <?php echo htmlspecialchars($row['genre'])?> </p>
+                        <hr>
+                        <img src="<?php echo htmlspecialchars($row['picturepath'])?>" alt="Book Cover">
+                        <hr>
+                        <p> <?php echo htmlspecialchars($row['price'])?> </p>
+                        <p class="description"> <?php echo htmlspecialchars($row['description'])?> </p>
+                        <form action="addComic.php" method="post">
+                            <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['comicbookID'])?>">
+                            <input type="hidden" name="name" value="<?php echo htmlspecialchars($row['name'])?>">
+                            <input type="hidden" name="author" value="<?php echo htmlspecialchars($row['author'])?>">
+                            <input type="hidden" name="price" value="<?php echo htmlspecialchars($row['price'])?>">
+                            <input type="hidden" name="description" value="<?php echo htmlspecialchars($row['description'])?>">
+                            <input type="submit" class="add-to-cart-btn" value="Add to Cart">
+                        </form>
+                    </div>
+                    <?php
                 }
-
-                echo '</div>';
+            } else {
+                echo '<p>No books found.</p>';
             }
-        }
-        $conn->close();
-    ?>
+        ?>
+    </div>	
+
+    <h1>Horror</h1>
+    <div id="HorrorContainer">
+    <?php
+            include("connectdatabase.php");
+            
+            // SQL query to retrieve books data
+            $sql = "SELECT name, author, genre, price, picturepath, description FROM comicbooks WHERE genre = 'Horror'";
+            $result = mysqli_query($conn, $sql);
+            
+            // Close database connection
+            $conn->close();
+
+            // Output books as HTML
+            if ($result->num_rows > 0) {
+                $lasGenre = null;
+                while ($row = $result->fetch_assoc()) {
+                    ?>
+                    <div class="book">
+                        <h1><?php echo htmlspecialchars($row['name'])?> </h1>
+                        <i> <?php echo htmlspecialchars($row['author'])?> </i>
+                        <p> <?php echo htmlspecialchars($row['genre'])?> </p>
+                        <hr>
+                        <img src="<?php echo htmlspecialchars($row['picturepath'])?>" alt="Book Cover">
+                        <hr>
+                        <p> <?php echo htmlspecialchars($row['price'])?> </p>
+                        <p class="description"> <?php echo htmlspecialchars($row['description'])?> </p>
+                        <form action="addComic.php" method="post">
+                            <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['comicbookID'])?>">
+                            <input type="hidden" name="name" value="<?php echo htmlspecialchars($row['name'])?>">
+                            <input type="hidden" name="author" value="<?php echo htmlspecialchars($row['author'])?>">
+                            <input type="hidden" name="price" value="<?php echo htmlspecialchars($row['price'])?>">
+                            <input type="hidden" name="description" value="<?php echo htmlspecialchars($row['description'])?>">
+                            <input type="submit" class="add-to-cart-btn" value="Add to Cart">
+                        </form>
+                    </div>
+                    <?php
+                }
+            } else {
+                echo '<p>No books found.</p>';
+            }
+        ?>
+    </div>
+
+    <h1>Superhero</h1>
+    <div id="SuperheroContainer">
+    <?php
+            include("connectdatabase.php");
+            
+            // SQL query to retrieve books data
+            $sql = "SELECT name, author, genre, price, picturepath, description FROM comicbooks WHERE genre = 'Superhero'";
+            $result = mysqli_query($conn, $sql);
+            
+            // Close database connection
+            $conn->close();
+
+            // Output books as HTML
+            if ($result->num_rows > 0) {
+                $lasGenre = null;
+                while ($row = $result->fetch_assoc()) {
+                    ?>
+                    <div class="book">
+                        <h1><?php echo htmlspecialchars($row['name'])?> </h1>
+                        <i> <?php echo htmlspecialchars($row['author'])?> </i>
+                        <p> <?php echo htmlspecialchars($row['genre'])?> </p>
+                        <hr>
+                        <img src="<?php echo htmlspecialchars($row['picturepath'])?>" alt="Book Cover">
+                        <hr>
+                        <p> <?php echo htmlspecialchars($row['price'])?> </p>
+                        <p class="description"> <?php echo htmlspecialchars($row['description'])?> </p>
+                        <form action="addComic.php" method="post">
+                            <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['comicbookID'])?>">
+                            <input type="hidden" name="name" value="<?php echo htmlspecialchars($row['name'])?>">
+                            <input type="hidden" name="author" value="<?php echo htmlspecialchars($row['author'])?>">
+                            <input type="hidden" name="price" value="<?php echo htmlspecialchars($row['price'])?>">
+                            <input type="hidden" name="description" value="<?php echo htmlspecialchars($row['description'])?>">
+                            <input type="submit" class="add-to-cart-btn" value="Add to Cart">
+                        </form>
+                    </div>
+                    <?php
+                }
+            } else {
+                echo '<p>No books found.</p>';
+            }
+        ?>
+    </div>
+
+    <h1>Manga</h1>
+    <div id="MangaContainer">
+    <?php
+            include("connectdatabase.php");
+            
+            // SQL query to retrieve books data
+            $sql = "SELECT name, author, genre, price, picturepath, description FROM comicbooks WHERE genre = 'Manga'";
+            $result = mysqli_query($conn, $sql);
+            
+            // Close database connection
+            $conn->close();
+
+            // Output books as HTML
+            if ($result->num_rows > 0) {
+                $lasGenre = null;
+                while ($row = $result->fetch_assoc()) {
+                    ?>
+                    <div class="book">
+                        <h1><?php echo htmlspecialchars($row['name'])?> </h1>
+                        <i> <?php echo htmlspecialchars($row['author'])?> </i>
+                        <p> <?php echo htmlspecialchars($row['genre'])?> </p>
+                        <hr>
+                        <img src="<?php echo htmlspecialchars($row['picturepath'])?>" alt="Book Cover">
+                        <hr>
+                        <p> <?php echo htmlspecialchars($row['price'])?> </p>
+                        <p class="description"> <?php echo htmlspecialchars($row['description'])?> </p>
+                        <form action="addComic.php" method="post">
+                            <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['comicbookID'])?>">
+                            <input type="hidden" name="name" value="<?php echo htmlspecialchars($row['name'])?>">
+                            <input type="hidden" name="author" value="<?php echo htmlspecialchars($row['author'])?>">
+                            <input type="hidden" name="price" value="<?php echo htmlspecialchars($row['price'])?>">
+                            <input type="hidden" name="description" value="<?php echo htmlspecialchars($row['description'])?>">
+                            <input type="submit" class="add-to-cart-btn" value="Add to Cart">
+                        </form>
+                    </div>
+                    <?php
+                }
+            } else {
+                echo '<p>No books found.</p>';
+            }
+        ?>
+    </div>
 	<?php include("Footer.php") ?>
     <script src="navFunctions.js" defer></script>
     </body>
