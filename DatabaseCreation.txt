@@ -65,20 +65,20 @@ CREATE TABLE cart
 	FOREIGN KEY (comicbookID) REFERENCES comicbooks(comicbookID)
 );
 
-INSERT INTO videogames (name, developer, genre, price, picturepath, description, userAdd, lister) VALUES
-('World of Warcraft', 'Blizzard Entertainment', 'MMORPG', 15.99, 'Images/World of Warcraft.jpg', '', FALSE, NULL),
-('Final Fantasy XIV', 'Square Enix', 'MMORPG', 69.99, 'Images/VFinal Fantasy XIV.jpg', '', FALSE, NULL),
-('The Elder Scrolls Online', 'FROM SOFTWARE GAMES', 'MMORPG', 69.99, 'Images/The Elder Scrolls Online.jpg', '', FALSE, NULL),
-('Guild Wars 2', 'ArenaNet', 'MMORPG', 69.99, 'Images/Guild Wars 2.jpg', '', FALSE, NULL),
-('Call of Duty: Warzone', 'Infinity Ward / Raven Software', 'First Person Shooter', 69.99, 'Images/CallofDutyWarzone.jpg', '', FALSE, NULL),
-('Overwatch', 'Blizzard Entertainment', 'First Person Shooter', 69.99, 'Images/Overwatch.jpg', '', FALSE, NULL),
-('Counter-Strike: Global Offensive', 'Valve Corporation / Hidden Path Entertainment', 'First Person Shooter', 69.99, 'Images/Counter-StrikeGlobalOffensive.jpg', '', FALSE, NULL),
-('Valorant', 'Riot Games', 'First Person Shooter', 69.99, 'Images/Valorant.jpg', '', FALSE, NULL),
-('Hades', 'Supergiant Games', 'Indie Games', 69.99, 'Images/Hades.jpg', '', FALSE, NULL),
-('Among Us', 'InnerSloth', 'Indie Games', 69.99, 'Images/Among Us.jpg', '', FALSE, NULL),
-('Celeste', 'Maddy Makes Games', 'Indie Games', 69.99, 'Images/Celeste.jpg', '', FALSE, NULL),
-('Stardew Valley', 'ConcernedApe (Eric Barone)', 'Indie Games', 69.99, 'Images/Stardew Valley.jpg', '', FALSE, NULL),
-('FIFA 22', 'EA Sports', 'Sports', 69.99, 'Images/FIFA 22.jpg', '', FALSE, NULL),
-('NBA 2K22', 'Visual Concepts / 2K Sports', 'Sports', 69.99, 'Images/NBA 2K22.jpg', '', FALSE, NULL),
-('Madden NFL 22', 'EA Sports', 'Sports', 69.99, 'Images/Madden NFL 22.jpg', '', FALSE, NULL),
-('Mario Kart 8 Deluxe', 'Nintendo EPD', 'Sports', 69.99, 'Images/Mario Kart 8 Deluxe.jpg', '', FALSE, NULL);
+INSERT INTO `videogames` (`videogameID`, `name`, `developer`, `genre`, `price`, `picturepath`, `description`, `userAdd`, `lister`) VALUES
+(2, 'World of Warcraft', 'Blizzard Entertainment', 'MMORPG', 15.99, 'Images/World of Warcraft.jpg', '', 0, NULL),
+(3, 'Final Fantasy XIV', 'Square Enix', 'MMORPG', 59.99, 'Images/Final Fantasy XIV.jpg', '', 0, NULL),
+(4, 'The Elder Scrolls Online', 'FROM SOFTWARE GAMES', 'MMORPG', 39.99, 'Images/The Elder Scrolls Online.jpg', '', 0, NULL),
+(5, 'Guild Wars 2', 'ArenaNet', 'MMORPG', 99.99, 'Images/Guild Wars 2.jpg', '', 0, NULL),
+(6, 'Call of Duty: Warzone', 'Infinity Ward / Raven Software', 'First Person Shooter', 29.99, 'Images/CallofDutyWarzone.jpg', '', 0, NULL),
+(7, 'Overwatch', 'Blizzard Entertainment', 'First Person Shooter', 19.99, 'Images/Overwatch.jpg', '', 0, NULL),
+(8, 'Counter-Strike: Global Offensive', 'Valve Corporation / Hidden Path Entertainment', 'First Person Shooter', 109.99, 'Images/Counter-StrikeGlobalOffensive.jpg', '', 0, NULL),
+(9, 'Valorant', 'Riot Games', 'First Person Shooter', 29.99, 'Images/Valorant.jpg', '', 0, NULL),
+(10, 'Hades', 'Supergiant Games', 'Indie Games', 9.99, 'Images/Hades.jpg', '', 0, NULL),
+(11, 'Among Us', 'InnerSloth', 'Indie Games', 789.99, 'Images/Among Us.jpg', '', 0, NULL),
+(12, 'Celeste', 'Maddy Makes Games', 'Indie Games', 69.99, 'Images/Celeste.jpg', '', 0, NULL),
+(13, 'Stardew Valley', 'ConcernedApe (Eric Barone)', 'Indie Games', 19.99, 'Images/Stardew Valley.jpg', '', 0, NULL),
+(14, 'FIFA 22', 'EA Sports', 'Sports', 29.99, 'Images/FIFA 22.jpg', '', 0, NULL),
+(15, 'NBA 2K22', 'Visual Concepts / 2K Sports', 'Sports', 79.99, 'Images/NBA 2K22.jpg', '', 0, NULL),
+(16, 'Madden NFL 22', 'EA Sports', 'Sports', 79.99, 'Images/Madden NFL 22.jpg', '', 0, NULL),
+(17, 'Mario Kart 8 Deluxe', 'Nintendo EPD', 'Sports', 9.99, 'Images/Mario Kart 8 Deluxe.jpg', '', 0, NULL);
