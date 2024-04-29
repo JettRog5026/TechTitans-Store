@@ -1,3 +1,8 @@
+<!--
+    TechTitans Store Video Games Page
+    Date last modified: 4/28/2024
+    Who last modified: Morgan Leger
+-->
 <?php
 	include("connectdatabase.php")
 ?>
@@ -19,71 +24,61 @@
 		
 		<!--Link to external stylesheet -->
 		<link href = "style.css" type = "text/css" rel = "stylesheet">
+        <style>
+			#listingForm 
+			{
+				display: none;
+			}
+
+            .Hotcontainer h2{
+                display:block;
+                width:100%
+            }
+		</style>
     </header>
+
      <body>
-		<?php include("Header.php") ?>
-			<?php
-				$sql = "SELECT * FROM videogames WHERE userAdd = TRUE"; // Replace 'your_table' with the actual name of your table
-				$result = $conn->query($sql);
-					if ($result->num_rows > 0) 
-					{
-						echo '<div id="Comic Books" sytle="display: none;">';
-						global $conn;
-						echo '<div class="Hotcontainer">';
-						while($row = $result->fetch_assoc()) 
-						{
-							if($row["genre"] == "MMO-RPG")
-							{		
-								echo '<h2>MMO-RPG</h2>';
-								echo '<div class="book">';
-									echo '<h2>'.$row["name"].'</h2>';
-									echo '<h4>'.$row["developer"].'</h4>';
-									echo '<img src="'.$row["picturepath"].'" alt="'.$row["name"].'>';
-									echo '<p>'.$row["price"].'</p>';
-									echo '<button class="add-to-cart-btn:Active">Add to Cart</button>';
-								echo '</div>';
-							}
-							elseif($row["genre"] == "FPS")
-							{
-								echo '<h2>FPS</h2>';
-								echo '<div class="book">';
-									echo '<h2>'.$row["name"].'</h2>';
-									echo '<h4>'.$row["developer"].'</h4>';
-									echo '<img src="'.$row["picturepath"].'" alt="'.$row["name"].'>';
-									echo '<p>Price: $'.$row["price"].'</p>';
-									echo '<button class="add-to-cart-btn">Add to Cart</button>';
-								echo '</div>';
-							}
-							elseif($row["genre"] == "INDIE")
-							{
-								echo '<div class="book">';
-									echo '<h2>'.$row["name"].'</h2>';
-									echo '<h4>'.$row["developer"].'</h4>';
-									echo '<img src="'.$row["picturepath"].'" alt="'.$row["name"].'>';
-									echo '<p>Price: $'.$row["price"].'</p>';
-									echo '<button class="add-to-cart-btn">Add to Cart</button>';
-								echo '</div>';
-							}
-							elseif($row["genre"] == "SPORTS")
-							{
-								echo '<div class="book">';
-									echo '<h2>'.$row["name"].'</h2>';
-									echo '<h4>'.$row["developer"].'</h4>';
-									echo '<img src="'.$row["picturepath"].'" alt="'.$row["name"].'>';
-									echo '<p>Price: $'.$row["price"].'</p>';
-									echo '<button class="add-to-cart-btn">Edit Listing</button>';
-								echo '</div>';
-							}
-						}
-						echo '</div>';
-					}	
-					else 
-					{
-						echo "<h1> NO USER INPUTS <h1>";
-					}
-					echo '</div>';
-?>
+        <?php include("Header.php") ?>
+		<?php
+            include("connectdatabase.php");
+            $videogames = array();
+            $sql_videogames = "SELECT name,developer,genre,price,picturepath FROM videogames WHERE userAdd = TRUE ORDER BY genre";
+            $result_videogames = mysqli_query($conn, $sql_videogames);
+            if (mysqli_num_rows($result_videogames) > 0) 
+            {
+                //Keep track of displayed genres
+                $displayedGenres = array();
+                while ($row = mysqli_fetch_assoc($result_videogames))
+                {
+                    //Check if the genre has already been displayed
+                    if (!in_array($row["genre"], $displayedGenres)) 
+                    {
+                        echo '<div class="Hotcontainer">';
+                        echo '<h2>'.$row["genre"].'</h2>';
+                        $displayedGenres[] = $row["genre"];
+                        
+                    }
+                    //Display game details
+                    echo '<div class="book">';
+                        echo '<h2>'.$row["name"].'</h2>';
+                        echo '<h4>'.$row["developer"].'</h4>';
+                        echo '<img src="'.$row["picturepath"].'" alt="'.$row["name"].'">';
+                        echo '<p>Price: $'.$row["price"].'</p>';
+                        echo '<button class="add-to-cart-btn">Add to Cart</button>';
+                    echo '</div>';
+
+                    if (!in_array($row["genre"], $displayedGenres) && $row != end($videogames)) 
+                    {
+                        echo '</div>';
+                    }
+                }
+            } 
+            else 
+            {
+                echo "<h1>NO USER INPUTS</h1>";
+            }
+        ?>
 		<?php include("Footer.php") ?>
-		<script src="store.js" defer></script>
     </body>
+	<script src="store.js" defer></script>
 </html>
