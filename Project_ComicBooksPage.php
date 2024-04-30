@@ -32,7 +32,7 @@
             include("connectdatabase.php");
             
             // SQL query to retrieve books data
-            $sql = "SELECT name, author, genre, price, picturepath, description FROM comicbooks WHERE genre = 'Romance'";
+            $sql = "SELECT * FROM comicbooks WHERE genre = 'Romance'";
             $result = mysqli_query($conn, $sql);
             
             // Close database connection
@@ -43,7 +43,7 @@
                 $lasGenre = null;
                 while ($row = $result->fetch_assoc()) {
                     ?>
-                    <div class="book">
+                    <div class="item">
                         <h1><?php echo htmlspecialchars($row['name'])?> </h1>
                         <i> <?php echo htmlspecialchars($row['author'])?> </i>
                         <p> <?php echo htmlspecialchars($row['genre'])?> </p>
@@ -75,7 +75,7 @@
             include("connectdatabase.php");
             
             // SQL query to retrieve books data
-            $sql = "SELECT name, author, genre, price, picturepath, description FROM comicbooks WHERE genre = 'Horror'";
+            $sql = "SELECT * FROM comicbooks WHERE genre = 'Horror'";
             $result = mysqli_query($conn, $sql);
             
             // Close database connection
@@ -86,7 +86,7 @@
                 $lasGenre = null;
                 while ($row = $result->fetch_assoc()) {
                     ?>
-                    <div class="book">
+                    <div class="item">
                         <h1><?php echo htmlspecialchars($row['name'])?> </h1>
                         <i> <?php echo htmlspecialchars($row['author'])?> </i>
                         <p> <?php echo htmlspecialchars($row['genre'])?> </p>
@@ -118,7 +118,7 @@
             include("connectdatabase.php");
             
             // SQL query to retrieve books data
-            $sql = "SELECT name, author, genre, price, picturepath, description FROM comicbooks WHERE genre = 'Superhero'";
+            $sql = "SELECT * FROM comicbooks WHERE genre = 'Superhero'";
             $result = mysqli_query($conn, $sql);
             
             // Close database connection
@@ -129,7 +129,7 @@
                 $lasGenre = null;
                 while ($row = $result->fetch_assoc()) {
                     ?>
-                    <div class="book">
+                    <div class="item">
                         <h1><?php echo htmlspecialchars($row['name'])?> </h1>
                         <i> <?php echo htmlspecialchars($row['author'])?> </i>
                         <p> <?php echo htmlspecialchars($row['genre'])?> </p>
@@ -161,7 +161,7 @@
             include("connectdatabase.php");
             
             // SQL query to retrieve books data
-            $sql = "SELECT name, author, genre, price, picturepath, description FROM comicbooks WHERE genre = 'Manga'";
+            $sql = "SELECT * FROM comicbooks WHERE genre = 'Manga'";
             $result = mysqli_query($conn, $sql);
             
             // Close database connection
@@ -172,7 +172,7 @@
                 $lasGenre = null;
                 while ($row = $result->fetch_assoc()) {
                     ?>
-                    <div class="book">
+                    <div class="item">
                         <h1><?php echo htmlspecialchars($row['name'])?> </h1>
                         <i> <?php echo htmlspecialchars($row['author'])?> </i>
                         <p> <?php echo htmlspecialchars($row['genre'])?> </p>

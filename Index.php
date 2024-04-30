@@ -34,7 +34,7 @@
                 width:100%
             }
 
-            .book {
+            .item {
                 width: calc(12.5% - 20px);
                 margin-right: 20px;
                 margin-bottom: 20px;
@@ -73,7 +73,7 @@
                         $lasGenre = null;
                         while ($row = $result->fetch_assoc()) {
                         ?>
-                            <div class="book">
+                            <div class="item">
                                 <h1><?php echo htmlspecialchars($row['name'])?> </h1>
                                 <i> <?php echo htmlspecialchars($row['author'])?> </i>
                                 <p> <?php echo htmlspecialchars($row['genre'])?> </p>
@@ -101,7 +101,7 @@
                         $lasGenre = null;
                         while ($row = $result2->fetch_assoc()) {
                             ?>
-                            <div class="book">
+                            <div class="item">
                                 <h1><?php echo htmlspecialchars($row['name'])?> </h1>
                                 <i> <?php echo htmlspecialchars($row['developer'])?> </i>
                                 <p> <?php echo htmlspecialchars($row['genre'])?> </p>
@@ -144,7 +144,7 @@
                         $lasGenre = null;
                         while ($row = $result->fetch_assoc()) {
                             ?>
-                            <div class="book">
+                            <div class="item">
                                 <h1><?php echo htmlspecialchars($row['name'])?> </h1>
                                 <i> <?php echo htmlspecialchars($row['author'])?> </i>
                                 <p> <?php echo htmlspecialchars($row['genre'])?> </p>
@@ -185,7 +185,7 @@
                             $lasGenre = null;
                             while ($row = $result->fetch_assoc()) {
                                 ?>
-                                <div class="book">
+                                <div class="item">
                                     <h1><?php echo htmlspecialchars($row['name'])?> </h1>
                                     <i> <?php echo htmlspecialchars($row['developer'])?> </i>
                                     <p> <?php echo htmlspecialchars($row['genre'])?> </p>

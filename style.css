@@ -232,7 +232,7 @@ footer {
     padding: 20px;
 }
 
-.book {
+.item {
     width: calc(25% - 20px);
     margin-right: 20px;
     margin-bottom: 20px;
@@ -244,8 +244,9 @@ footer {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.book img {
-    width: 100%;
+.item img {
+    max-width: 70%;
+    max-height: 70%;
     object-fit:fill;
 }
 .genre {
@@ -263,7 +264,7 @@ footer {
     transition: transform 1s ease; /* Smooth transition effect */
     box-sizing: border-box;
 }
-.book:hover .description {
+.item:hover .description {
     transform: translateY(0); /* Slide description into view on hover */
 }
 
@@ -283,13 +284,13 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .book {
+    .item {
         width: calc(50% - 20px);
     }
 }
 
 @media (max-width: 480px) {
-    .book {
+    .item {
         width: 100%;
     }
 }

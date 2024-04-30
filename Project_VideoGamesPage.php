@@ -61,7 +61,7 @@
                     
                     //Display game details
                     ?>
-                    <div class="book">
+                    <div class="item">
                         <h1><?php echo htmlspecialchars($row['name'])?> </h1>
                         <i> <?php echo htmlspecialchars($row['developer'])?> </i>
                         <p> <?php echo htmlspecialchars($row['genre'])?> </p>
