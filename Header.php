@@ -1,3 +1,9 @@
+<!--
+    TechTitans Header
+    Date last modified: 4/13/24
+    Who last modified: Jett Rogers, Adam Pousson
+-->
+
 <div class="header">
     <img src="Images/McNeeseLogo.png" alt="McNeese" id="mcneeselogotop"> <!--Mcneese logo-->
 
