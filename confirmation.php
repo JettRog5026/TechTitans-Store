@@ -1,6 +1,6 @@
 <!--
-    PHP file for the McNeese Bookstore Checkout
-    Author: Jett Rogers
+    PHP file for the TechTitans Checkout
+    Author: Jett Rogers, Adam Pousson
     Created On: 4/22/2024
 -->
 <?php
