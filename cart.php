@@ -1,7 +1,7 @@
 <!--
-    PHP file for the McNeese Bookstore Cart
+    PHP file for the TechTitans Cart
     Author: Jett Rogers
-    Created On: 3/28/2024
+    Created On: 4/28/2024
 -->
 
 <!DOCTYPE html>
