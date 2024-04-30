@@ -1,3 +1,7 @@
+/*
+Jett Rogers
+*/
+
 CREATE DATABASE TechTitans;
 CREATE TABLE users
 (
