@@ -8,7 +8,7 @@
 
     <header>
         <!-- Author of webpage-->
-		<meta name = "author" content = "Christopher Bertra,"/>
+		<meta name = "author" content = "Christopher Bertram"/>
 		
 		<!-- Description of webpage-->
 		<meta name = "description" content = "Comic Books"/>
