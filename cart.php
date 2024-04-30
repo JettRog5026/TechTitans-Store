@@ -85,7 +85,7 @@
                                 ?>
                             </div>
                             <form action="deleteGame.php" method="post">
-                                <input type="hidden" name="productId" value="<?php echo $row['videogameID']; ?>">
+                                <input type="hidden" name="id" value="<?php echo $row['videogameID']; ?>">
                                 <input type="hidden" name="customerId" value="<?php echo $customer_id; ?>">
                                 <input type="submit" name="delete" class="deleteBTN" value="X" onClick="javascript:history.go(-1)">
                             </form>
@@ -112,7 +112,7 @@
                                 ?>
                             </div>
                             <form action="deleteComic.php" method="post">
-                                <input type="hidden" name="productId" value="<?php echo $row['comicbookID']; ?>">
+                                <input type="hidden" name="id" value="<?php echo $row['comicbookID']; ?>">
                                 <input type="hidden" name="customerId" value="<?php echo $customer_id; ?>">
                                 <input type="submit" name="delete" class="deleteBTN" value="X">
                             </form>
