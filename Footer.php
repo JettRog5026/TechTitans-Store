@@ -1,3 +1,9 @@
+<!--
+    TechTitans Footer
+    Date last modified: 4/13/24
+    Who last modified: Jett Rogers, Morgan Leger
+-->
+
 <footer>
 	<img src="Images/McNeeseLogo.png" alt="McNeese" id="mcneeselogofooter"> <!--McNeese logo-->
 	<div class="socialMedia">
