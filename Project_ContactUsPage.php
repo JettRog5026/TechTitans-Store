@@ -25,8 +25,10 @@
     </header>
 
     <body>
-
-        <?php include("Header.php") ?>
+		<?php
+		$_SESSION['id'] = 1;
+		$custId = $_SESSION['id'];
+        include("Header.php") ?>
 		<!-- Contact Form -->
 		<div class="contact-form">
 		  <h2>Contact Us</h2>
@@ -41,7 +43,7 @@
 			<textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
 			<input type="submit" value="Submit">
 
-			<input type="hidden">
+			<input type="hidden" name="id" value="<?php echo htmlspecialchars($custId)?>">
 
 		  </form>
 		</div>
