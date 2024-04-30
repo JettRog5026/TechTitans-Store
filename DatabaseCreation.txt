@@ -65,3 +65,40 @@ CREATE TABLE cart
 	FOREIGN KEY (videoGameID) REFERENCES videogames(videogameID),
 	FOREIGN KEY (comicbookID) REFERENCES comicbooks(comicbookID)
 );
+
+INSERT INTO `videogames` (`videogameID`, `name`, `developer`, `genre`, `price`, `picturepath`, `description`, `userAdd`, `lister`) VALUES
+(2, 'World of Warcraft', 'Blizzard Entertainment', 'MMORPG', 15.99, 'Images/World of Warcraft.jpg', '', 0, NULL),
+(3, 'Final Fantasy XIV', 'Square Enix', 'MMORPG', 59.99, 'Images/Final Fantasy XIV.jpg', '', 0, NULL),
+(4, 'The Elder Scrolls Online', 'FROM SOFTWARE GAMES', 'MMORPG', 39.99, 'Images/The Elder Scrolls Online.jpg', '', 0, NULL),
+(5, 'Guild Wars 2', 'ArenaNet', 'MMORPG', 99.99, 'Images/Guild Wars 2.jpg', '', 0, NULL),
+(6, 'Call of Duty: Warzone', 'Infinity Ward / Raven Software', 'First Person Shooter', 29.99, 'Images/CallofDutyWarzone.jpg', '', 0, NULL),
+(7, 'Overwatch', 'Blizzard Entertainment', 'First Person Shooter', 19.99, 'Images/Overwatch.jpg', '', 0, NULL),
+(8, 'Counter-Strike: Global Offensive', 'Valve Corporation / Hidden Path Entertainment', 'First Person Shooter', 109.99, 'Images/Counter-StrikeGlobalOffensive.jpg', '', 0, NULL),
+(9, 'Valorant', 'Riot Games', 'First Person Shooter', 29.99, 'Images/Valorant.jpg', '', 0, NULL),
+(10, 'Hades', 'Supergiant Games', 'Indie Games', 9.99, 'Images/Hades.jpg', '', 0, NULL),
+(11, 'Among Us', 'InnerSloth', 'Indie Games', 789.99, 'Images/Among Us.jpg', '', 0, NULL),
+(12, 'Celeste', 'Maddy Makes Games', 'Indie Games', 69.99, 'Images/Celeste.jpg', '', 0, NULL),
+(13, 'Stardew Valley', 'ConcernedApe (Eric Barone)', 'Indie Games', 19.99, 'Images/Stardew Valley.jpg', '', 0, NULL),
+(14, 'FIFA 22', 'EA Sports', 'Sports', 29.99, 'Images/FIFA 22.jpg', '', 0, NULL),
+(15, 'NBA 2K22', 'Visual Concepts / 2K Sports', 'Sports', 79.99, 'Images/NBA 2K22.jpg', '', 0, NULL),
+(16, 'Madden NFL 22', 'EA Sports', 'Sports', 79.99, 'Images/Madden NFL 22.jpg', '', 0, NULL),
+(17, 'Mario Kart 8 Deluxe', 'Nintendo EPD', 'Sports', 9.99, 'Images/Mario Kart 8 Deluxe.jpg', '', 0, NULL);
+
+
+INSERT INTO comicbooks VALUES
+(1, 'The Sun Is Also a Star', 'Nicola Yoon', 'Romance', 12.99, 'Images/ComicBooks/SunisStar.jpg', 'Adapted from Nicola Yoon\'s novel, this graphic novel explores love, fate, and choices through the story of Natasha and Daniel.', 0, NULL),
+(2, 'Heartstopper', 'Alice Oseman', 'Romance', 12.00, 'Images/ComicBooks/HeartStop.jpg', 'Follow Charlie and Nick\'s tender romance and journey of self-discovery in this heartwarming series.', 0, NULL),
+(3, 'Bloom', 'Kevin Panetta', 'Romance', 1.00, 'Images/ComicBooks/Bloom.jpg', 'Discover the magic of baking and falling in love in this charming graphic novel about Ari and Hector.', 0, NULL),
+(4, 'Laura Dean Keeps Breaking Up with Me', 'Mariko Tamaki', 'Romance', 14.99, 'Images/ComicBooks/LauraDean.jpg', 'Explore the complexities of young love and self-worth through Freddy\'s on-off relationship with Laura Dean.', 0, NULL),
+(5, 'Locke & Key', 'Joe Hill', 'Horror', 20.99, 'Images/ComicBooks/Lock.jpg', 'Follow the Locke siblings as they uncover supernatural secrets within their ancestral home using mystical keys.', 0, NULL),
+(6, 'Harrow County', 'Cullen Bunn', 'Horror', 20.99, 'Images/ComicBooks/HarrowCounty.jpg', 'Experience eerie horror as Emmy discovers her connection to supernatural forces in a rural Southern setting.', 0, NULL),
+(7, 'Gideon Falls', 'Jeff Lemire', 'Horror', 77.77, 'Images/ComicBooks/Gideon.jpg', 'Delve into an unsettling mystery involving dark dimensions and hidden meanings.', 0, NULL),
+(8, 'Something is Killing the Children', 'James Tynion IV', 'Horror', 49.99, 'Images/ComicBooks/KillChildren.jpg', 'Join monster hunter Erica Slaughter as she investigates a town plagued by horrifying creatures.', 0, NULL),
+(9, 'My Hero Academia', 'Kohei Horikoshi', 'Manga', 49.99, 'Images/ComicBooks/MyHeroA.png', 'Follow Izuku Midoriya\'s journey to become a hero in a world filled with quirks and villains.', 0, NULL),
+(10, 'Attack on Titan', 'Hajime Isayama', 'Manga', 60.00, 'Images/ComicBooks/AttackOnTitan.jpg', 'Experience humanity\'s struggle for survival against giant humanoid creatures known as Titans.', 0, NULL),
+(11, 'Fruits Basket', 'Natsuki Takaya', 'Manga', 34.44, 'Images/ComicBooks/FruitsBasket.jpg', 'Delve into the story of Tohru Honda and the Sohma family cursed by the Chinese zodiac.', 0, NULL),
+(12, 'Death Note', 'Tsugumi Ohba', 'Manga', 6.66, 'Images/ComicBooks/DeathNote.jpg', 'Follow Light Yagami\'s descent into darkness after obtaining a supernatural notebook that can kill anyone whose name is written in it.', 0, NULL),
+(13, 'Batman: Hush', 'Jeph Loeb', 'Superhero', 43.43, 'Images/ComicBooks/BatmanHush.jpg', 'Witness Batman\'s encounters with a mysterious new adversary in this captivating graphic novel.', 0, NULL),
+(14, 'Ms. Marvel', 'G. Willow Wilson', 'Superhero', 0.01, 'Images/ComicBooks/MsMarvel.jpg', 'Follow Kamala Khan\'s journey as she balances life as a teenager and a superhero in Jersey City.', 0, NULL),
+(15, 'Superman: Red Son', 'Mark Millar', 'Superhero', 120.00, 'Images/ComicBooks/SupermanRed.jpg', 'Explore an alternate reality where Superman\'s spaceship crash-lands in Soviet Russia.', 0, NULL),
+(16, 'Spider-Man: Into the Spider-Verse', 'Ralph Macchio', 'Superhero', 49.99, 'Images/ComicBooks/SpiderManSpiderVerse.jpg', 'Explore the multiverse with various Spider-Heroes teaming up in this comic book adaptation of the animated film.', 0, NULL);
