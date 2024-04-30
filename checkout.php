@@ -1,5 +1,5 @@
 <!--
-    PHP file for the McNeese Bookstore Checkout
+    PHP file for the TechTitans Checkout
     Author: Jett Rogers
     Created On: 4/22/2024
 -->
