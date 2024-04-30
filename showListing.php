@@ -1,7 +1,7 @@
 <!--
     TechTitans Store Video Games Page
     Date last modified: 4/28/2024
-    Who last modified: Morgan Leger
+    Who last modified: Morgan Leger, Adam Pousson
 -->
 <?php
 	include("connectdatabase.php")
