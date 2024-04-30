@@ -31,8 +31,8 @@
             <div class="columns">
                 <h1>Shopping Cart</h1>
                 <h3>Price</h3>
-                <form action="deleteAll.php" method="post">
-                    <input type="hidden" name="userID" value="<?php echo $customer_id; ?>">
+                <form action="" method="post">
+                    <input type="hidden" name="customerId" value="<?php echo $customer_id; ?>">
                     <input type="submit" class="removeAll" value="Remove All">
                 </form>
             </div>
@@ -85,9 +85,9 @@
                                 ?>
                             </div>
                             <form action="deleteGame.php" method="post">
-                                <input type="hidden" name="id" value="<?php echo $row['videogameID']; ?>">
-                                <input type="hidden" name="userID" value="<?php echo $customer_id; ?>">
-                                <input type="submit" name="delete" class="deleteBTN" value="X">
+                                <input type="hidden" name="productId" value="<?php echo $row['videogameID']; ?>">
+                                <input type="hidden" name="customerId" value="<?php echo $customer_id; ?>">
+                                <input type="submit" name="delete" class="deleteBTN" value="X" onClick="javascript:history.go(-1)">
                             </form>
                         </div>
                         <?php
@@ -112,8 +112,8 @@
                                 ?>
                             </div>
                             <form action="deleteComic.php" method="post">
-                                <input type="hidden" name="id" value="<?php echo $row['comicbookID']; ?>">
-                                <input type="hidden" name="userID" value="<?php echo $customer_id; ?>">
+                                <input type="hidden" name="productId" value="<?php echo $row['comicbookID']; ?>">
+                                <input type="hidden" name="customerId" value="<?php echo $customer_id; ?>">
                                 <input type="submit" name="delete" class="deleteBTN" value="X">
                             </form>
                             
