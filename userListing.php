@@ -1,3 +1,9 @@
+<!--
+    TechTitans UserListing Page
+    Date last modified: 4/13/24
+    Who last modified: Adam Pousson, Jett Rogers, Morgan Leger
+-->
+
 <?php
 	include("connectdatabase.php")
 ?>
