@@ -8,10 +8,10 @@
 
     <header>
         <!-- Author of webpage-->
-		<meta name = "author" content = "Morgan Leger"/>
+		<meta name = "author" content = "Christopher Bertram"/>
 		
 		<!-- Description of webpage-->
-		<meta name = "description" content = "About Tech Titan Morgan Leger"/>
+		<meta name = "description" content = "Comic Books"/>
 		
 		<!-- Keywords of webpage-->
 		<meta name = "keywords" content = "HTML, Web Programming"/>
@@ -44,7 +44,7 @@
                 if ($result->num_rows > 0) {
                     $lasGenre = null;
                     while ($row = $result->fetch_assoc()) {
-                        echo '<div class="book">';
+                        echo '<div class="item">';
                         echo '<h1>' . $row['name'] . '</h1>';
                         echo '<i>' . $row['author'] . '</i>';
                         echo '<p>'. $row['genre'] . '</p>';

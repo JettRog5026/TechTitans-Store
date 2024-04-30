@@ -59,7 +59,7 @@
                         
                     }
                     //Display game details
-                    echo '<div class="book">';
+                    echo '<div class="item">';
                         echo '<h2>'.$row["name"].'</h2>';
                         echo '<h4>'.$row["developer"].'</h4>';
                         echo '<img src="'.$row["picturepath"].'" alt="'.$row["name"].'">';

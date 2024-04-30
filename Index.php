@@ -34,7 +34,7 @@
                 width:100%
             }
 
-            .book {
+            .item {
                 width: calc(12.5% - 20px);
                 margin-right: 20px;
                 margin-bottom: 20px;
@@ -72,7 +72,7 @@
                     if ($result->num_rows > 0) {
                         $lasGenre = null;
                         while ($row = $result->fetch_assoc()) {
-                            echo '<div class="book">';
+                            echo '<div class="item">';
                             echo '<h1>' . $row['name'] . '</h1>';
                             echo '<i>' . $row['author'] . '</i>';
                             echo '<p>'. $row['genre'] . '</p>';
@@ -91,7 +91,7 @@
                     if ($result2->num_rows > 0) {
                         $lasGenre = null;
                         while ($row = $result2->fetch_assoc()) {
-                            echo '<div class="book">';
+                            echo '<div class="item">';
                             echo '<h1>' . $row['name'] . '</h1>';
                             echo '<i>' . $row['developer'] . '</i>';
                             echo '<p>'. $row['genre'] . '</p>';
@@ -125,7 +125,7 @@
                     if ($result->num_rows > 0) {
                         $lasGenre = null;
                         while ($row = $result->fetch_assoc()) {
-                            echo '<div class="book">';
+                            echo '<div class="item">';
                             echo '<h1>' . $row['name'] . '</h1>';
                             echo '<i>' . $row['author'] . '</i>';
                             echo '<p>'. $row['genre'] . '</p>';
@@ -157,7 +157,7 @@
                         if ($result->num_rows > 0) {
                             $lasGenre = null;
                             while ($row = $result->fetch_assoc()) {
-                                echo '<div class="book">';
+                                echo '<div class="item">';
                                 echo '<h1>' . $row['name'] . '</h1>';
                                 echo '<i>' . $row['developer'] . '</i>';
                                 echo '<p>'. $row['genre'] . '</p>';
