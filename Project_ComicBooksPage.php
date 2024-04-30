@@ -1,20 +1,20 @@
 <!--
     TechTitans Store Comic Books Page
     Date last modified: 4/13/24
-    Who last modified: Morgan Leger
+    Who last modified: Christopher Bertram
 -->
 <!DOCTYPE html>
 <html lang="en">
 
     <header>
         <!-- Author of webpage-->
-		<meta name = "author" content = "Morgan Leger"/>
+		<meta name = "author" content = "Christopher Bertra,"/>
 		
 		<!-- Description of webpage-->
-		<meta name = "description" content = "About Tech Titan Morgan Leger"/>
+		<meta name = "description" content = "Comic Books"/>
 		
 		<!-- Keywords of webpage-->
-		<meta name = "keywords" content = "HTML, Web Programming"/>
+		<meta name = "keywords" content = "HTML, Web Programming, Comics"/>
 		
 		<!-- Charachter set of webpage-->
 		<meta charset = "UTF-8"/>
