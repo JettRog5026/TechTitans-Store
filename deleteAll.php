@@ -30,5 +30,6 @@
     else {
         // Customer id is not provided
         echo "<script>alert('Customer ID is missing.');</script>";
+        header("Location: cart.php");
     }
 ?>
