@@ -31,8 +31,8 @@
             <div class="columns">
                 <h1>Shopping Cart</h1>
                 <h3>Price</h3>
-                <form action="" method="post">
-                    <input type="hidden" name="customerId" value="<?php echo $customer_id; ?>">
+                <form action="deleteAll.php" method="post">
+                    <input type="hidden" name="userID" value="<?php echo $customer_id; ?>">
                     <input type="submit" class="removeAll" value="Remove All">
                 </form>
             </div>
