@@ -1,7 +1,7 @@
 <!--
     TechTitans Store
-    Date last modified: 4/13/24
-    Who last modified: Adam Pousson
+    Date last modified: 4/29/24
+    Modified by: Adam Pousson, Jett Rogers, Morgan Leger, Chris Bertram
 -->
 
 <!DOCTYPE html>
