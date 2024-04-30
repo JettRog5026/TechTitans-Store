@@ -9,26 +9,30 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bookstore Cart</title>
-        <link rel="stylesheet" href="Cart.css"> <!--Link to CSS file-->
+        <title>Store Cart</title>
+        <link rel="stylesheet" href="cart.css"> <!--Link to CSS file-->
+        <link rel="stylesheet" href="style.css">
+
+        
+
     </head>
     <body> 
-        <?php
-            include("header.html");
-            include("connectdatabase.php");
-        ?>
+        <?php include("Header.php") ?>
+        <?php include("connectdatabase.php"); ?>
+        
         <div class="cart">
 
             <?php
-                // Assume the customer ID is 1 for now
-                $customer_id = 1;
+                $_SESSION['id'] = 1;
+                
+                $customer_id = $_SESSION['id'];
             ?>
 
-            <div class="header">
+            <div class="columns">
                 <h1>Shopping Cart</h1>
                 <h3>Price</h3>
                 <form action="deleteAll.php" method="post">
-                    <input type="hidden" name="customerId" value="<?php echo $customer_id; ?>">
+                    <input type="hidden" name="userID" value="<?php echo $customer_id; ?>">
                     <input type="submit" class="removeAll" value="Remove All">
                 </form>
             </div>
@@ -37,78 +41,86 @@
                 
 
                 // Query to get cart information
-                $query = "SELECT Book.BookId, Book.Title, Book.Author, Book.Price, Cart.TotalCost 
-                        FROM Cart 
-                        INNER JOIN Book ON Cart.BookId = Book.BookId 
-                        WHERE Cart.CustomerId = ?";
+                $query = "SELECT videogames.videogameID, videogames.name, videogames.developer, 
+                            videogames.price, videogames.description
+                        FROM cart 
+                        INNER JOIN videogames ON cart.videogameID = videogames.videogameID
+                        WHERE cart.userID = ?";
+                $statement = $conn->prepare($query);
+                $statement->bind_param("i", $customer_id);
+                $statement->execute();
+                $gameResult = $statement->get_result();
+                $total_cost = 0.00;
+
+                $query = "SELECT comicbooks.comicbookID, comicbooks.name, comicbooks.author, 
+                            comicbooks.price, comicbooks.description
+                        FROM cart 
+                        INNER JOIN comicbooks ON cart.comicbookID = comicbooks.comicbookID
+                        WHERE cart.userID = ?";
                 $statement = $conn->prepare($query);
                 $statement->bind_param("i", $customer_id);
                 $statement->execute();
                 $bookResult = $statement->get_result();
-                $total_cost = 0;
-
-                $query = "SELECT officesupply.SupplyId, officesupply.Name, officesupply.Brand, officesupply.Price,
-                        officesupply.PhotoFilePath, Cart.TotalCost 
-                        FROM Cart 
-                        INNER JOIN officesupply ON Cart.SupplyId = officesupply.SupplyId 
-                        WHERE Cart.CustomerId = ?";
-                $statement = $conn->prepare($query);
-                $statement->bind_param("i", $customer_id);
-                $statement->execute();
-                $officeSupplyResult = $statement->get_result();
 
                 $count = 0;
 
                 // Check if cart is empty
-                if ($bookResult->num_rows === 0 && $officeSupplyResult->num_rows === 0) {
-                    echo "<p>Your cart is empty.</p>";
+                if ($gameResult->num_rows === 0 && $bookResult->num_rows === 0) {
+                    echo "<h3>Your cart is empty.</h3>";
                 } else {
                     // Display cart items
-                    while ($row = $bookResult->fetch_assoc()) {
+                    while ($row = $gameResult->fetch_assoc()) {
                         ?>
                         <div class="item">
                             <div class="info">
                                 <?php
-                                    echo "<p>Title: " . htmlspecialchars($row["Title"]) . "</p>";
-                                    echo "<p>Author: " . htmlspecialchars($row["Author"]) . "</p>";
+                                    echo "<h3>Name: " . htmlspecialchars($row["name"]) . "</h3>";
+                                    echo "<h4>Developer: " . htmlspecialchars($row["developer"]) . "</h4>";
                                 ?>
                             </div>
-                            <?php
-                                echo "<p>$" . htmlspecialchars($row["Price"]) . "</p>";
-                            ?>
-                            <form action="delete.php" method="post">
-                                <input type="hidden" name="productId" value="<?php echo $row['BookId']; ?>">
-                                <input type="hidden" name="customerId" value="<?php echo $customer_id; ?>">
-                                <input type="submit" name="delete" class="deleteBTN" value="X" onClick="javascript:history.go(-1)">
-                            </form>
-                        </div>
-                        <?php
-                        // Keep track of total cost for each item
-                        $total_cost += $row["TotalCost"];
-                        $count += 1;
-                    }
-
-                    while ($row = $officeSupplyResult->fetch_assoc()) {
-                        ?>
-                        <div class="item">
                             <div class="info">
                                 <?php
-                                    echo "<p>Item: " . htmlspecialchars($row["Name"]) . "</p>";
-                                    echo "<p>Brand: " . htmlspecialchars($row["Brand"]) . "</p>";
+                                    echo "<p>Description: " . htmlspecialchars($row["description"]) . "</p>";
+                                    echo "<p>$" . htmlspecialchars($row["price"]) . "</p>";
                                 ?>
                             </div>
-                            <?php
-                                echo "<p>$" . htmlspecialchars($row["Price"]) . "</p>";
-                            ?>
-                            <form action="deleteOffSup.php" method="post">
-                                <input type="hidden" name="productId" value="<?php echo $row['SupplyId']; ?>">
-                                <input type="hidden" name="customerId" value="<?php echo $customer_id; ?>">
+                            <form action="deleteGame.php" method="post">
+                                <input type="hidden" name="id" value="<?php echo $row['videogameID']; ?>">
+                                <input type="hidden" name="userID" value="<?php echo $customer_id; ?>">
                                 <input type="submit" name="delete" class="deleteBTN" value="X">
                             </form>
                         </div>
                         <?php
                         // Keep track of total cost for each item
-                        $total_cost += $row["TotalCost"];
+                        $total_cost += $row["price"];
+                        $count += 1;
+                    }
+
+                    while ($row = $bookResult->fetch_assoc()) {
+                        ?>
+                        <div class="item">
+                            <div class="info">
+                                <?php
+                                    echo "<h3>Comic: " . htmlspecialchars($row["name"]) . "</h3>";
+                                    echo "<h4>Author: " . htmlspecialchars($row["author"]) . "</h4>";
+                                ?>
+                            </div>
+                            <div class="info">
+                                <?php
+                                    echo "<p>Description: " . htmlspecialchars($row["description"]) . "</p>";
+                                    echo "<p>$" . htmlspecialchars($row["price"]) . "</p>";
+                                ?>
+                            </div>
+                            <form action="deleteComic.php" method="post">
+                                <input type="hidden" name="id" value="<?php echo $row['comicbookID']; ?>">
+                                <input type="hidden" name="userID" value="<?php echo $customer_id; ?>">
+                                <input type="submit" name="delete" class="deleteBTN" value="X">
+                            </form>
+                            
+                        </div>
+                        <?php
+                        // Keep track of total cost for each item
+                        $total_cost += $row["price"];
                         $count += 1;
                     }
 
@@ -126,7 +138,7 @@
 
         <?php
             }
-            include("footer.html"); //Display footer
+            include("footer.php"); //Display footer
         ?>
     </body>
 </html>

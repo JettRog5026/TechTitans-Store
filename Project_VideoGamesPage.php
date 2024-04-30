@@ -30,7 +30,7 @@
 				display: none;
 			}
 
-            .gameContainer h2{
+            .videogamescontainer h2{
                 display:block;
                 width:100%
             }
@@ -42,7 +42,7 @@
 		<?php
             include("connectdatabase.php");
             $videogames = array();
-            $sql_videogames = "SELECT name,developer,genre,price,picturepath, description FROM videogames WHERE userAdd = FALSE ORDER BY genre";
+            $sql_videogames = "SELECT videogameID,name,developer,genre,price,picturepath,description FROM videogames WHERE userAdd = FALSE ORDER BY genre";
             $result_videogames = mysqli_query($conn, $sql_videogames);
             if (mysqli_num_rows($result_videogames) > 0) 
             {
@@ -53,21 +53,33 @@
                     //Check if the genre has already been displayed
                     if (!in_array($row["genre"], $displayedGenres)) 
                     {
-                        echo '<h2>' . $row["genre"] . '</h2>';
-                        echo '<div id="gameContainer">';
+                        echo '<div class="videogamescontainer">';
+                        echo '<h2>'.$row["genre"].'</h2>';
                         $displayedGenres[] = $row["genre"];
                         
                     }
+                    
                     //Display game details
-                    echo '<div class="item">';
-                        echo '<h2>'.$row["name"].'</h2>';
-                        echo '<h4>'.$row["developer"].'</h4>';
-                        echo '<img src="'.$row["picturepath"].'" alt="'.$row["name"].'">';
-                        echo '<p>Price: $'.$row["price"].'</p>';
-                        echo '<button class="add-to-cart-btn">Add to Cart</button>';
-                        echo '<p class="description">' . $row['description'] . '</p>';
-                    echo '</div>';
-
+                    ?>
+                    <div class="item">
+                        <h1><?php echo htmlspecialchars($row['name'])?> </h1>
+                        <i> <?php echo htmlspecialchars($row['developer'])?> </i>
+                        <p> <?php echo htmlspecialchars($row['genre'])?> </p>
+                        <hr>
+                        <img src="<?php echo htmlspecialchars($row['picturepath'])?>" alt="Book Cover">
+                        <hr>
+                        <p> <?php echo htmlspecialchars($row['price'])?> </p>
+                        <p class="description"> <?php echo htmlspecialchars($row['description'])?> </p>
+                        <form action="addGame.php" method="post">
+                            <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['videogameID'])?>">
+                            <input type="hidden" name="name" value="<?php echo htmlspecialchars($row['name'])?>">
+                            <input type="hidden" name="developer" value="<?php echo htmlspecialchars($row['developer'])?>">
+                            <input type="hidden" name="price" value="<?php echo htmlspecialchars($row['price'])?>">
+                            <input type="hidden" name="description" value="<?php echo htmlspecialchars($row['description'])?>">
+                            <input type="submit" class="add-to-cart-btn" value="Add to Cart">
+                        </form>
+                    </div>
+                    <?php
                     if (!in_array($row["genre"], $displayedGenres) && $row != end($videogames)) 
                     {
                         echo '</div>';
@@ -83,4 +95,3 @@
 	</body>
 	<script src="store.js" defer></script>
 </html>
-

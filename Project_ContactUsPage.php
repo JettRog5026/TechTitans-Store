@@ -30,14 +30,19 @@
 		<!-- Contact Form -->
 		<div class="contact-form">
 		  <h2>Contact Us</h2>
-		  <form id="contactForm">
+		  <form action="addContact.php">
 			<label for="email">Email:</label><br>
 			<input type="email" id="email" name="email" required><br>
+
 			<label for="orderNumber">Order Number:</label><br>
 			<input type="text" id="orderNumber" name="orderNumber"><br>
+
 			<label for="message">Message:</label><br>
 			<textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
 			<input type="submit" value="Submit">
+
+			<input type="hidden">
+
 		  </form>
 		</div>
 
